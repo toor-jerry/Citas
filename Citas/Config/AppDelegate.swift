@@ -10,10 +10,18 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Apenas arranque mandara a llamar la vista principal
+        let vc = MainRouter.createModul() as! MainView
+        self.window = UIWindow()
+        let screen: UIScreen = UIScreen.main
+        self.window?.frame = screen.bounds
+        window?.rootViewController = vc
+        window?.makeKeyAndVisible()
         return true
     }
 
