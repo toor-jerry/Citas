@@ -27,7 +27,7 @@ class MainRouter: MainRouterProtocols {
     }
     
     func pushScreen() -> UIViewController {
-        return UIViewController()
+        return PerfilUserRouter.createModuls()
     }
     
     func getStoryBoard() -> UIStoryboard {

@@ -26,7 +26,31 @@ class MainInteractor: MainInteractorInputProtocols {
         presenter?.sendUser(user: listUser)
     }
     
-    func getGenderUser(genero: Int) {
+    func getGenderUser(genero: Int, usuarios: [UserEntity]) {
+        var userH: [UserEntity] = []
+        var userM: [UserEntity] = []
+        
+        for usuario in usuarios {
+            if usuario.gender == "M" {
+                userM.append(usuario)
+            } else {
+                userH.append(usuario)
+            }
+        }
+        
+        switch genero {
+        case 0:
+            presenter?.sendUser(user: usuarios)
+        break
+    case 1:
+            presenter?.sendUser(user: userM)
+            break
+        case 2:
+            presenter?.sendUser(user: userH)
+            break
+        default:
+            break
+        }
         
     }
     

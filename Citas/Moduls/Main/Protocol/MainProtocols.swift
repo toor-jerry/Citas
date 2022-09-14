@@ -23,7 +23,7 @@ protocol MainPresenterProcol: AnyObject {
     
     // custom
     func getUser()
-    func getGenderUser(genero: Int)
+    func getGenderUser(genero: Int, usuarios: [UserEntity])
     func pushScreen() -> UIViewController
 }
 
@@ -52,6 +52,6 @@ protocol MainInteractorInputProtocols {
     
     // Custom
     func getUser()
-    func getGenderUser(genero: Int)
+    func getGenderUser(genero: Int, usuarios: [UserEntity])
     
 }

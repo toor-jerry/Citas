@@ -17,15 +17,20 @@ class MainView: UIViewController {
     var context = CIContext(options: nil)
     var presenter: MainPresenterProcol?
     static var listUsers: [UserEntity] = []
+    let standarUserDefault = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if self.standarUserDefault.string(forKey: "llaves") == nil {
+            self.standarUserDefault.set(3, forKey: "llaves")
+        }
+        
         self.configView()
     }
     
     
     private func configView() {
-        self.keys.title = "\(cantidadLlaves) 🔑"
+        self.keys.title = "\(self.standarUserDefault.integer(forKey: "llaves")) 🔑"
         self.presenter?.getUser()
     }
     
@@ -37,8 +42,23 @@ class MainView: UIViewController {
     
     @IBAction func selectGender(_ sender: Any) {
         let selection = selected.selectedSegmentIndex
-        self.presenter?.getGenderUser(genero: selection)
+        self.presenter?.getGenderUser(genero: selection, usuarios: MainView.listUsers)
     }
+    
+    @IBAction func addKeys(_ sender: Any) {
+        let vc = UIAlertController(title: "Comprar llaves", message: "¿Desea comprar llaves?", preferredStyle: .alert)
+        vc.addAction(UIAlertAction(title: "Cancelar", style: .cancel))
+        vc.addTextField()
+        let btnAceptar = UIAlertAction(title: "Aceptar", style: .default, handler: {_ in
+            // codigo para comprar llaves
+            if let cantidad = vc.textFields![0].text {
+                self.standarUserDefault.set(cantidad,forKey: "llaves")
+            }
+        })
+        vc.addAction(btnAceptar)
+        self.present(vc, animated: true)
+    }
+    
 }
 
 
@@ -48,8 +68,12 @@ extension MainView: UICollectionViewDataSource, UICollectionViewDelegate, UIColl
         
         if MainView.listUsers[indexPath.row].enable {
             // Se llama al usuario desbloqueado
+            let obj = MainRouter()
+            let vc = obj.pushScreen() as! PerfilUserViewController
+            //vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
         } else {
-            if self.cantidadLlaves > 0 {
+            if self.standarUserDefault.integer(forKey: "llaves") > 0 {
                 // here
                 let alert = UIAlertController(title: "Demo V.I.P.I.R.", message: "¿Está usted segur@ que desea ver a este usuario?", preferredStyle: .alert)
                 let noAlert = UIAlertAction(title: "Cancelar", style: .cancel)
@@ -68,6 +92,8 @@ extension MainView: UICollectionViewDataSource, UICollectionViewDelegate, UIColl
                 self.present(alert, animated: true, completion: nil)
             }
         }
+        
+        
         
     }
     
@@ -113,10 +139,16 @@ extension MainView: UICollectionViewDataSource, UICollectionViewDelegate, UIColl
     
     func noHideUser(index: Int) {
         MainView.listUsers[index].enable = true
-        self.cantidadLlaves = self.cantidadLlaves - 1
-        self.keys.title = "\(self.cantidadLlaves) 🔑"
+        //self.cantidadLlaves = self.cantidadLlaves - 1
+        //self.keys.title = "\(self.cantidadLlaves) 🔑"
         self.collection.reloadData()
+        let auxLlaves = self.standarUserDefault.integer(forKey: "llaves")
+        self.standarUserDefault.set(auxLlaves - 1, forKey: "llaves")
+        self.keys.title = "\(auxLlaves - 1) 🔑"
     }
+    
+    
+    
     
 }
 
@@ -136,3 +168,4 @@ extension MainView: MainViewProtocols {
     }
     
 }
+

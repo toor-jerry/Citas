@@ -9,6 +9,8 @@ import UIKit
 
 class MainPresenter: MainPresenterProcol, MainInteractorOutputProtocols {
     
+    
+    
     var router: MainRouterProtocols?
     var view: MainViewProtocols?
     var interactor: MainInteractorInputProtocols?
@@ -17,8 +19,8 @@ class MainPresenter: MainPresenterProcol, MainInteractorOutputProtocols {
         interactor?.getUser()
     }
     
-    func getGenderUser(genero: Int) {
-        
+    func getGenderUser(genero: Int, usuarios: [UserEntity]) {
+        interactor?.getGenderUser(genero: genero, usuarios: usuarios)
     }
     
     func pushScreen() -> UIViewController {
