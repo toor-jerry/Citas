@@ -9,8 +9,13 @@ import UIKit
 
 class MainRouter: MainRouterProtocols {
     static func createModul() -> UIViewController {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let view = storyboard.instantiateViewController(withIdentifier: "Main") as! MainViewProtocols
+        
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        guard let view = storyboard.instantiateViewController(withIdentifier: "Main") as? MainViewProtocols else {
+            return UIViewController()
+        }
+        
         let presenter: MainPresenterProcol & MainInteractorOutputProtocols = MainPresenter()
         var interactor: MainInteractorInputProtocols = MainInteractor()
         let router: MainRouterProtocols = MainRouter()
@@ -22,17 +27,17 @@ class MainRouter: MainRouterProtocols {
         presenter.router = router
         interactor.presenter = presenter
         
-        return view as! UIViewController
-        
+        guard let viewUI = view as? UIViewController else {
+        return UIViewController()
+        }
+        return viewUI
     }
-    
+
     func pushScreen() -> UIViewController {
         return PerfilUserRouter.createModuls()
     }
-    
+
     func getStoryBoard() -> UIStoryboard {
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        return storyboard
+        return UIStoryboard(name: "Main", bundle: nil)
     }
 }

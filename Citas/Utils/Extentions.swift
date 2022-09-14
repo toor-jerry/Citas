@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 extension MainView {
     
     // Tranparencia script

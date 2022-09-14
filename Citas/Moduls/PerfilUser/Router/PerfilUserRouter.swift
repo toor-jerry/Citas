@@ -9,7 +9,11 @@ import UIKit
 class PerfilUserRouter: PerfilUserRouterProtocols {
     static func createModuls() -> UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let view = storyboard.instantiateViewController(withIdentifier: "PerfilUser") as! PerfilUserViewProtocols
+        
+        guard let view = storyboard.instantiateViewController(
+            withIdentifier: "PerfilUser") as? PerfilUserViewProtocols else {
+            return UIViewController()
+        }
         let presenter: PerfilUserPresenterProtocols & PerfilUserInteractorOutputProtocols = PerfilUserPresenter()
         let interactor: PerfilUserInteractorInputProtocols = PerfilUserInteractor()
         let router: PerfilUserRouterProtocols = PerfilUserRouter()
@@ -20,9 +24,10 @@ class PerfilUserRouter: PerfilUserRouterProtocols {
         presenter.interactor = interactor
         presenter.router = router
         interactor.presenter = presenter
-        
-        return view as! PerfilUserViewController
+
+        guard let viewUI = view as? PerfilUserViewController else {
+            return UIViewController()
+        }
+        return viewUI
     }
-    
-    
 }

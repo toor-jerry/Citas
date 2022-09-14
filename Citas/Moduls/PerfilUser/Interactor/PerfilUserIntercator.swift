@@ -9,8 +9,4 @@ import UIKit
 
 class PerfilUserInteractor: PerfilUserInteractorInputProtocols {
     var presenter: PerfilUserInteractorOutputProtocols?
-    
-    
-    
-   
 }

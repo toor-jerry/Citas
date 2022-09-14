@@ -9,10 +9,6 @@ import UIKit
 
 class PerfilUserPresenter: PerfilUserPresenterProtocols, PerfilUserInteractorOutputProtocols {
     var router: PerfilUserRouterProtocols?
-    
     var view: PerfilUserViewProtocols?
-    
     var interactor: PerfilUserInteractorInputProtocols?
-    
-    
 }

@@ -12,6 +12,4 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imgUno: UIImageView!
     @IBOutlet weak var lblUltimaVez: UILabel!
     @IBOutlet weak var imgSecond: UIImageView!
-    
-    
 }

@@ -9,8 +9,6 @@ import UIKit
 
 class MainPresenter: MainPresenterProcol, MainInteractorOutputProtocols {
     
-    
-    
     var router: MainRouterProtocols?
     var view: MainViewProtocols?
     var interactor: MainInteractorInputProtocols?
