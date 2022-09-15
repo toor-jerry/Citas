@@ -8,6 +8,7 @@
 import UIKit
 
 class MainRouter: MainRouterProtocols {
+    
     static func createModul() -> UIViewController {
         
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -39,5 +40,13 @@ class MainRouter: MainRouterProtocols {
 
     func getStoryBoard() -> UIStoryboard {
         return UIStoryboard(name: "Main", bundle: nil)
+    }
+    
+    func showProfile() -> UIViewController {
+        return PerfilUserRouter.createModuls()
+    }
+    
+    func showChat() -> UIViewController {
+        return ChatRouter.createModuls(titleNav: "Name")
     }
 }

@@ -25,6 +25,8 @@ protocol MainPresenterProcol: AnyObject {
     func getUser()
     func getGenderUser(genero: Int, usuarios: [UserEntity])
     func pushScreen() -> UIViewController
+    func showProfile() -> UIViewController
+    func showChat() -> UIViewController
 }
 
 // Protocolo del segmento router del modulo Main
@@ -32,7 +34,8 @@ protocol MainRouterProtocols: AnyObject {
     
     static func createModul() -> UIViewController
     func pushScreen() -> UIViewController
-    
+    func showProfile() -> UIViewController
+    func showChat() -> UIViewController
 }
 
 protocol MainIntercatorProtocols {

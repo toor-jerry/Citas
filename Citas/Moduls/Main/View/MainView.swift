@@ -60,18 +60,15 @@ class MainView: UIViewController {
     }
 }
 
+// MARK: MainView - UICollection
 extension MainView: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
         if MainView.listUsers[indexPath.row].enable {
             // Se llama al usuario desbloqueado
-            let obj = MainRouter()
-            guard let viewC = obj.pushScreen() as? PerfilUserViewController else {
-                return
-            }
             // vc.modalPresentationStyle = .fullScreen
-            self.present(viewC, animated: true, completion: nil)
+            self.present(self.presenter?.showChat() ?? UIViewController(), animated: true, completion: nil)
         } else {
             if self.standarUserDefault.integer(forKey: "llaves") > 0 {
                 // here
@@ -86,7 +83,7 @@ extension MainView: UICollectionViewDataSource, UICollectionViewDelegate, UIColl
             } else {
                 let alert = UIAlertController(
                     title: "Error",
-                    message: "Lo sentimos, ya no cuenta con llaves para ver más ususarios.",
+                    message: "Lo sentimos, ya no cuenta con llaves para ver más usuarios.",
                     preferredStyle: .alert
                 )
                 let btnAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
@@ -146,6 +143,7 @@ extension MainView: UICollectionViewDataSource, UICollectionViewDelegate, UIColl
     }
 }
 
+// MARK: MainView - MainViewProtocols
 // Recibe la data del presenter, que a su vez lo recibio del intercator
 extension MainView: MainViewProtocols {
     func showError() { }

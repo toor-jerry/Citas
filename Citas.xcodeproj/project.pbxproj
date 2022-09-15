@@ -36,6 +36,12 @@
 		D24859A728D28EAF00E4AB5F /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D24859A628D28EAF00E4AB5F /* FirebaseFirestore */; };
 		D24859A928D28EAF00E4AB5F /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D24859A828D28EAF00E4AB5F /* FirebaseFirestoreSwift */; };
 		D24859AB28D28EAF00E4AB5F /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = D24859AA28D28EAF00E4AB5F /* FirebaseStorage */; };
+		D2E7785928D2C2F30084959A /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E7785728D2C2F30084959A /* ChatViewController.swift */; };
+		D2E7785C28D2C33C0084959A /* ChatProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E7785B28D2C33C0084959A /* ChatProtocols.swift */; };
+		D2E7785E28D2C5180084959A /* ChatPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E7785D28D2C5180084959A /* ChatPresenter.swift */; };
+		D2E7786028D2C5430084959A /* ChatRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E7785F28D2C5430084959A /* ChatRouter.swift */; };
+		D2E7786A28D2C6590084959A /* ChatInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E7786928D2C6590084959A /* ChatInteractor.swift */; };
+		D2E7787228D2D26D0084959A /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2E7787128D2D26D0084959A /* Chat.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +67,12 @@
 		5F66D818289DC7A50014FEDD /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		5FF698EC289EB8C700F1A9A6 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		D248599728D28E0900E4AB5F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D2E7785728D2C2F30084959A /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		D2E7785B28D2C33C0084959A /* ChatProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatProtocols.swift; sourceTree = "<group>"; };
+		D2E7785D28D2C5180084959A /* ChatPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPresenter.swift; sourceTree = "<group>"; };
+		D2E7785F28D2C5430084959A /* ChatRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRouter.swift; sourceTree = "<group>"; };
+		D2E7786928D2C6590084959A /* ChatInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInteractor.swift; sourceTree = "<group>"; };
+		D2E7787128D2D26D0084959A /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +191,7 @@
 			children = (
 				5F66D7EF289D9A890014FEDD /* Main.storyboard */,
 				5F66D7F4289D9A8A0014FEDD /* LaunchScreen.storyboard */,
+				D2E7787128D2D26D0084959A /* Chat.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -195,6 +208,7 @@
 		5F66D801289DA0580014FEDD /* Moduls */ = {
 			isa = PBXGroup;
 			children = (
+				D2E7785128D2C1240084959A /* Chat */,
 				5F2983E028A1765600D60CBB /* PerfilUser */,
 				5F66D802289DA7950014FEDD /* Main */,
 			);
@@ -269,6 +283,58 @@
 				5F66D818289DC7A50014FEDD /* CollectionViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		D2E7785128D2C1240084959A /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				D2E7785628D2C1830084959A /* Router */,
+				D2E7785528D2C1790084959A /* Presenter */,
+				D2E7785428D2C1740084959A /* Protocol */,
+				D2E7785328D2C16B0084959A /* Interactor */,
+				D2E7785228D2C1640084959A /* View */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		D2E7785228D2C1640084959A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D2E7785728D2C2F30084959A /* ChatViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D2E7785328D2C16B0084959A /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				D2E7786928D2C6590084959A /* ChatInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		D2E7785428D2C1740084959A /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				D2E7785B28D2C33C0084959A /* ChatProtocols.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		D2E7785528D2C1790084959A /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				D2E7785D28D2C5180084959A /* ChatPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		D2E7785628D2C1830084959A /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				D2E7785F28D2C5430084959A /* ChatRouter.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,6 +413,7 @@
 				5F66D7F6289D9A8A0014FEDD /* LaunchScreen.storyboard in Resources */,
 				D248599828D28E0900E4AB5F /* GoogleService-Info.plist in Resources */,
 				5F66D7F3289D9A8A0014FEDD /* Assets.xcassets in Resources */,
+				D2E7787228D2D26D0084959A /* Chat.storyboard in Resources */,
 				5F66D7F1289D9A890014FEDD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -380,16 +447,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F66D819289DC7A50014FEDD /* CollectionViewCell.swift in Sources */,
+				D2E7785C28D2C33C0084959A /* ChatProtocols.swift in Sources */,
 				5F2983F128A17BEC00D60CBB /* PerfilUserIntercator.swift in Sources */,
 				5F66D80C289DA8DA0014FEDD /* MainProtocols.swift in Sources */,
+				D2E7786028D2C5430084959A /* ChatRouter.swift in Sources */,
 				5F2983EF28A17B1800D60CBB /* PerfilUserPresenter.swift in Sources */,
+				D2E7786A28D2C6590084959A /* ChatInteractor.swift in Sources */,
 				5F66D810289DAE740014FEDD /* MainView.swift in Sources */,
+				D2E7785E28D2C5180084959A /* ChatPresenter.swift in Sources */,
 				5FF698ED289EB8C700F1A9A6 /* Extentions.swift in Sources */,
 				5F66D7EE289D9A890014FEDD /* ViewController.swift in Sources */,
 				5F2983ED28A17AC500D60CBB /* PerfilUserViewController.swift in Sources */,
 				5F66D7EA289D9A890014FEDD /* AppDelegate.swift in Sources */,
 				5F66D80E289DAAD70014FEDD /* UserEntity.swift in Sources */,
 				5F66D812289DB9760014FEDD /* MainPresenter.swift in Sources */,
+				D2E7785928D2C2F30084959A /* ChatViewController.swift in Sources */,
 				5F66D7EC289D9A890014FEDD /* SceneDelegate.swift in Sources */,
 				5F66D814289DBAFF0014FEDD /* MainInteractor.swift in Sources */,
 				5F66D816289DC23B0014FEDD /* MainRouter.swift in Sources */,
@@ -539,8 +611,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Citas/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -555,6 +628,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = test.Citas;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -566,8 +640,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Citas/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -582,6 +657,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = test.Citas;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

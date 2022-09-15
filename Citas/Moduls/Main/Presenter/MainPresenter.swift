@@ -34,4 +34,12 @@ class MainPresenter: MainPresenterProcol, MainInteractorOutputProtocols {
         view?.createdTable(user: user)
     }
     
+    func showProfile() -> UIViewController {
+        return router?.showProfile() ?? UIViewController()
+    }
+    
+    func showChat() -> UIViewController {
+        return router?.showChat() ?? UIViewController()
+    }
+    
 }
