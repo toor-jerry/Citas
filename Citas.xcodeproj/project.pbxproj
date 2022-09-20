@@ -36,6 +36,12 @@
 		D24859A728D28EAF00E4AB5F /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D24859A628D28EAF00E4AB5F /* FirebaseFirestore */; };
 		D24859A928D28EAF00E4AB5F /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D24859A828D28EAF00E4AB5F /* FirebaseFirestoreSwift */; };
 		D24859AB28D28EAF00E4AB5F /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = D24859AA28D28EAF00E4AB5F /* FirebaseStorage */; };
+		D260CF0728DA11D700F86223 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D260CF0628DA11D700F86223 /* Login.storyboard */; };
+		D260CF0928DA11F200F86223 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260CF0828DA11F200F86223 /* LoginViewController.swift */; };
+		D260CF0C28DA15A300F86223 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260CF0B28DA15A300F86223 /* LoginInteractor.swift */; };
+		D260CF0F28DA175900F86223 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260CF0E28DA175900F86223 /* LoginPresenter.swift */; };
+		D260CF1228DA178100F86223 /* LoginProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260CF1128DA178100F86223 /* LoginProtocols.swift */; };
+		D260CF1528DA17A600F86223 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260CF1428DA17A600F86223 /* LoginRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +67,12 @@
 		5F66D818289DC7A50014FEDD /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		5FF698EC289EB8C700F1A9A6 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		D248599728D28E0900E4AB5F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D260CF0628DA11D700F86223 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		D260CF0828DA11F200F86223 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D260CF0B28DA15A300F86223 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
+		D260CF0E28DA175900F86223 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		D260CF1128DA178100F86223 /* LoginProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProtocols.swift; sourceTree = "<group>"; };
+		D260CF1428DA17A600F86223 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +191,7 @@
 			children = (
 				5F66D7EF289D9A890014FEDD /* Main.storyboard */,
 				5F66D7F4289D9A8A0014FEDD /* LaunchScreen.storyboard */,
+				D260CF0628DA11D700F86223 /* Login.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -195,6 +208,8 @@
 		5F66D801289DA0580014FEDD /* Moduls */ = {
 			isa = PBXGroup;
 			children = (
+				D260CF0428DA11C700F86223 /* Login */,
+				D260CF1328DA179C00F86223 /* Router */,
 				5F2983E028A1765600D60CBB /* PerfilUser */,
 				5F66D802289DA7950014FEDD /* Main */,
 			);
@@ -269,6 +284,57 @@
 				5F66D818289DC7A50014FEDD /* CollectionViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		D260CF0428DA11C700F86223 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D260CF0528DA11CD00F86223 /* View */,
+				D260CF0A28DA158800F86223 /* Interactor */,
+				D260CF1028DA177600F86223 /* Protocols */,
+				D260CF0D28DA174D00F86223 /* Presenter */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		D260CF0528DA11CD00F86223 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D260CF0828DA11F200F86223 /* LoginViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D260CF0A28DA158800F86223 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				D260CF0B28DA15A300F86223 /* LoginInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		D260CF0D28DA174D00F86223 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				D260CF0E28DA175900F86223 /* LoginPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		D260CF1028DA177600F86223 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				D260CF1128DA178100F86223 /* LoginProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		D260CF1328DA179C00F86223 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				D260CF1428DA17A600F86223 /* LoginRouter.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,6 +413,7 @@
 				5F66D7F6289D9A8A0014FEDD /* LaunchScreen.storyboard in Resources */,
 				D248599828D28E0900E4AB5F /* GoogleService-Info.plist in Resources */,
 				5F66D7F3289D9A8A0014FEDD /* Assets.xcassets in Resources */,
+				D260CF0728DA11D700F86223 /* Login.storyboard in Resources */,
 				5F66D7F1289D9A890014FEDD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -380,18 +447,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F66D819289DC7A50014FEDD /* CollectionViewCell.swift in Sources */,
+				D260CF1228DA178100F86223 /* LoginProtocols.swift in Sources */,
 				5F2983F128A17BEC00D60CBB /* PerfilUserIntercator.swift in Sources */,
 				5F66D80C289DA8DA0014FEDD /* MainProtocols.swift in Sources */,
 				5F2983EF28A17B1800D60CBB /* PerfilUserPresenter.swift in Sources */,
+				D260CF1528DA17A600F86223 /* LoginRouter.swift in Sources */,
+				D260CF0F28DA175900F86223 /* LoginPresenter.swift in Sources */,
 				5F66D810289DAE740014FEDD /* MainView.swift in Sources */,
 				5FF698ED289EB8C700F1A9A6 /* Extentions.swift in Sources */,
 				5F66D7EE289D9A890014FEDD /* ViewController.swift in Sources */,
 				5F2983ED28A17AC500D60CBB /* PerfilUserViewController.swift in Sources */,
+				D260CF0C28DA15A300F86223 /* LoginInteractor.swift in Sources */,
 				5F66D7EA289D9A890014FEDD /* AppDelegate.swift in Sources */,
 				5F66D80E289DAAD70014FEDD /* UserEntity.swift in Sources */,
 				5F66D812289DB9760014FEDD /* MainPresenter.swift in Sources */,
 				5F66D7EC289D9A890014FEDD /* SceneDelegate.swift in Sources */,
 				5F66D814289DBAFF0014FEDD /* MainInteractor.swift in Sources */,
+				D260CF0928DA11F200F86223 /* LoginViewController.swift in Sources */,
 				5F66D816289DC23B0014FEDD /* MainRouter.swift in Sources */,
 				5F2983E928A1773F00D60CBB /* PerfilUserProtocols.swift in Sources */,
 				5F2983E728A176EF00D60CBB /* PerfilUserRouter.swift in Sources */,
