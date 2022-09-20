@@ -8,11 +8,11 @@
 import UIKit
 
 extension MainView {
-    
+
     // Tranparencia script
-    func blurEffect(bg: UIImageView) {
+    func blurEffect(bcg: UIImageView) {
         let currentFilter = CIFilter(name: "CIGaussianBlur")
-        let beginImage = CIImage(image: bg.image!)
+        let beginImage = CIImage(image: bcg.image!)
         currentFilter!.setValue(beginImage, forKey: kCIInputImageKey)
         currentFilter!.setValue(20, forKey: kCIInputRadiusKey)
         
@@ -23,7 +23,7 @@ extension MainView {
         let output = cropFilter!.outputImage
         let cgimg = context.createCGImage(output!, from: output!.extent)
         let processedImage = UIImage(cgImage: cgimg!)
-        bg.image = processedImage
+        bcg.image = processedImage
     }
     
 }

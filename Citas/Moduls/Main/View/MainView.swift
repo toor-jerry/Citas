@@ -26,7 +26,7 @@ class MainView: UIViewController {
         }
         self.configView()
     }
-    
+
     private func configView() {
         self.keys.title = "\(self.standarUserDefault.integer(forKey: "llaves")) 🔑"
         self.presenter?.getUser()
@@ -119,7 +119,7 @@ extension MainView: UICollectionViewDataSource, UICollectionViewDelegate, UIColl
         } else {
             cell.imgUno.image = UIImage(named: user?.image ?? "")
             cell.imgSecond.isHidden = false
-            blurEffect(bg: cell.imgUno)
+            blurEffect(bcg: cell.imgUno)
             cell.imgSecond.image = UIImage(named: "candado")
             // cell.imgUno.alpha = 0.4
         }

@@ -11,7 +11,7 @@ class MainRouter: MainRouterProtocols {
     static func createModul() -> UIViewController {
         
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        
+
         guard let view = storyboard.instantiateViewController(withIdentifier: "Main") as? MainViewProtocols else {
             return UIViewController()
         }
@@ -26,10 +26,11 @@ class MainRouter: MainRouterProtocols {
         presenter.interactor = interactor
         presenter.router = router
         interactor.presenter = presenter
-        
+
         guard let viewUI = view as? UIViewController else {
         return UIViewController()
         }
+
         return viewUI
     }
 

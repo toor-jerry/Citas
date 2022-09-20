@@ -48,6 +48,12 @@
 		D260CF2228DA1CE400F86223 /* RegisterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260CF2128DA1CE400F86223 /* RegisterProtocols.swift */; };
 		D260CF2528DA1D0F00F86223 /* RegisterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260CF2428DA1D0F00F86223 /* RegisterPresenter.swift */; };
 		D260CF2828DA1D3900F86223 /* RegisterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260CF2728DA1D3900F86223 /* RegisterRouter.swift */; };
+		D266B68028DA5B4700757174 /* PageError.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D266B67F28DA5B4700757174 /* PageError.storyboard */; };
+		D266B68A28DA5BB300757174 /* PageErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D266B68928DA5BB300757174 /* PageErrorViewController.swift */; };
+		D266B68C28DA5BF300757174 /* PageErrorInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D266B68B28DA5BF300757174 /* PageErrorInteractor.swift */; };
+		D266B68E28DA5C1600757174 /* PageErrorProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D266B68D28DA5C1600757174 /* PageErrorProtocols.swift */; };
+		D266B69028DA5C3500757174 /* PageErrorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D266B68F28DA5C3500757174 /* PageErrorPresenter.swift */; };
+		D266B69228DA5C5100757174 /* PageErrorRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D266B69128DA5C5100757174 /* PageErrorRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +91,12 @@
 		D260CF2128DA1CE400F86223 /* RegisterProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProtocols.swift; sourceTree = "<group>"; };
 		D260CF2428DA1D0F00F86223 /* RegisterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPresenter.swift; sourceTree = "<group>"; };
 		D260CF2728DA1D3900F86223 /* RegisterRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRouter.swift; sourceTree = "<group>"; };
+		D266B67F28DA5B4700757174 /* PageError.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PageError.storyboard; sourceTree = "<group>"; };
+		D266B68928DA5BB300757174 /* PageErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageErrorViewController.swift; sourceTree = "<group>"; };
+		D266B68B28DA5BF300757174 /* PageErrorInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageErrorInteractor.swift; sourceTree = "<group>"; };
+		D266B68D28DA5C1600757174 /* PageErrorProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageErrorProtocols.swift; sourceTree = "<group>"; };
+		D266B68F28DA5C3500757174 /* PageErrorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageErrorPresenter.swift; sourceTree = "<group>"; };
+		D266B69128DA5C5100757174 /* PageErrorRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageErrorRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +217,7 @@
 				5F66D7F4289D9A8A0014FEDD /* LaunchScreen.storyboard */,
 				D260CF0628DA11D700F86223 /* Login.storyboard */,
 				D260CF1A28DA1BEE00F86223 /* Register.storyboard */,
+				D266B67F28DA5B4700757174 /* PageError.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -221,6 +234,7 @@
 		5F66D801289DA0580014FEDD /* Moduls */ = {
 			isa = PBXGroup;
 			children = (
+				D266B68128DA5B4E00757174 /* PageError */,
 				D260CF1628DA1B8C00F86223 /* Register */,
 				D260CF0428DA11C700F86223 /* Login */,
 				5F2983E028A1765600D60CBB /* PerfilUser */,
@@ -403,6 +417,58 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		D266B68128DA5B4E00757174 /* PageError */ = {
+			isa = PBXGroup;
+			children = (
+				D266B68628DA5B7600757174 /* View */,
+				D266B68528DA5B6B00757174 /* Interactor */,
+				D266B68428DA5B6400757174 /* Protocols */,
+				D266B68328DA5B5B00757174 /* Presenter */,
+				D266B68228DA5B5300757174 /* Router */,
+			);
+			path = PageError;
+			sourceTree = "<group>";
+		};
+		D266B68228DA5B5300757174 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				D266B69128DA5C5100757174 /* PageErrorRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		D266B68328DA5B5B00757174 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				D266B68F28DA5C3500757174 /* PageErrorPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		D266B68428DA5B6400757174 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				D266B68D28DA5C1600757174 /* PageErrorProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		D266B68528DA5B6B00757174 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				D266B68B28DA5BF300757174 /* PageErrorInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		D266B68628DA5B7600757174 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D266B68928DA5BB300757174 /* PageErrorViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -481,6 +547,7 @@
 				5F66D7F3289D9A8A0014FEDD /* Assets.xcassets in Resources */,
 				D260CF0728DA11D700F86223 /* Login.storyboard in Resources */,
 				5F66D7F1289D9A890014FEDD /* Main.storyboard in Resources */,
+				D266B68028DA5B4700757174 /* PageError.storyboard in Resources */,
 				D260CF1B28DA1BEE00F86223 /* Register.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -519,7 +586,9 @@
 				5F2983F128A17BEC00D60CBB /* PerfilUserIntercator.swift in Sources */,
 				5F66D80C289DA8DA0014FEDD /* MainProtocols.swift in Sources */,
 				5F2983EF28A17B1800D60CBB /* PerfilUserPresenter.swift in Sources */,
+				D266B68C28DA5BF300757174 /* PageErrorInteractor.swift in Sources */,
 				D260CF1528DA17A600F86223 /* LoginRouter.swift in Sources */,
+				D266B68E28DA5C1600757174 /* PageErrorProtocols.swift in Sources */,
 				D260CF0F28DA175900F86223 /* LoginPresenter.swift in Sources */,
 				5F66D810289DAE740014FEDD /* MainView.swift in Sources */,
 				5FF698ED289EB8C700F1A9A6 /* Extentions.swift in Sources */,
@@ -527,8 +596,11 @@
 				D260CF2828DA1D3900F86223 /* RegisterRouter.swift in Sources */,
 				5F2983ED28A17AC500D60CBB /* PerfilUserViewController.swift in Sources */,
 				D260CF2228DA1CE400F86223 /* RegisterProtocols.swift in Sources */,
+				D266B69028DA5C3500757174 /* PageErrorPresenter.swift in Sources */,
 				D260CF0C28DA15A300F86223 /* LoginInteractor.swift in Sources */,
 				5F66D7EA289D9A890014FEDD /* AppDelegate.swift in Sources */,
+				D266B69228DA5C5100757174 /* PageErrorRouter.swift in Sources */,
+				D266B68A28DA5BB300757174 /* PageErrorViewController.swift in Sources */,
 				5F66D80E289DAAD70014FEDD /* UserEntity.swift in Sources */,
 				5F66D812289DB9760014FEDD /* MainPresenter.swift in Sources */,
 				5F66D7EC289D9A890014FEDD /* SceneDelegate.swift in Sources */,
@@ -689,7 +761,6 @@
 				INFOPLIST_FILE = Citas/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -716,7 +787,6 @@
 				INFOPLIST_FILE = Citas/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

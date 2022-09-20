@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "external-404-no-code-flaticons-flat-flat-icons-2.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "external-404-no-code-flaticons-flat-flat-icons-1.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "external-404-no-code-flaticons-flat-flat-icons.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
