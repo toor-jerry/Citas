@@ -43,6 +43,9 @@
 		D260CEFE28DA0BF900F86223 /* ConversationsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260CEFD28DA0BF900F86223 /* ConversationsProtocols.swift */; };
 		D260CF0028DA0C2D00F86223 /* ConversationsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260CEFF28DA0C2D00F86223 /* ConversationsRouter.swift */; };
 		D260CF0328DA0CF900F86223 /* ConversationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260CF0228DA0CF900F86223 /* ConversationEntity.swift */; };
+		D266B66628DA33F100757174 /* PhotoViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D266B66528DA33F100757174 /* PhotoViewerViewController.swift */; };
+		D266B66828DA33FF00757174 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D266B66728DA33FF00757174 /* VideoPlayerViewController.swift */; };
+		D266B66A28DA341200757174 /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D266B66928DA341200757174 /* NewConversationViewController.swift */; };
 		D2E7785928D2C2F30084959A /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E7785728D2C2F30084959A /* ChatViewController.swift */; };
 		D2E7785C28D2C33C0084959A /* ChatProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E7785B28D2C33C0084959A /* ChatProtocols.swift */; };
 		D2E7785E28D2C5180084959A /* ChatPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E7785D28D2C5180084959A /* ChatPresenter.swift */; };
@@ -81,6 +84,9 @@
 		D260CEFD28DA0BF900F86223 /* ConversationsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsProtocols.swift; sourceTree = "<group>"; };
 		D260CEFF28DA0C2D00F86223 /* ConversationsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsRouter.swift; sourceTree = "<group>"; };
 		D260CF0228DA0CF900F86223 /* ConversationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationEntity.swift; sourceTree = "<group>"; };
+		D266B66528DA33F100757174 /* PhotoViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewerViewController.swift; sourceTree = "<group>"; };
+		D266B66728DA33FF00757174 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
+		D266B66928DA341200757174 /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
 		D2E7785728D2C2F30084959A /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		D2E7785B28D2C33C0084959A /* ChatProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatProtocols.swift; sourceTree = "<group>"; };
 		D2E7785D28D2C5180084959A /* ChatPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPresenter.swift; sourceTree = "<group>"; };
@@ -362,9 +368,28 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
+		D266B66328DA33C600757174 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D266B66428DA33D100757174 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D266B66528DA33F100757174 /* PhotoViewerViewController.swift */,
+				D266B66728DA33FF00757174 /* VideoPlayerViewController.swift */,
+				D266B66928DA341200757174 /* NewConversationViewController.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		D2E7785128D2C1240084959A /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				D266B66428DA33D100757174 /* Utils */,
+				D266B66328DA33C600757174 /* Extensions */,
 				D2E7785628D2C1830084959A /* Router */,
 				D2E7785528D2C1790084959A /* Presenter */,
 				D2E7785428D2C1740084959A /* Protocol */,
@@ -533,6 +558,7 @@
 				5F2983EF28A17B1800D60CBB /* PerfilUserPresenter.swift in Sources */,
 				D2E7786A28D2C6590084959A /* ChatInteractor.swift in Sources */,
 				5F66D810289DAE740014FEDD /* MainView.swift in Sources */,
+				D266B66828DA33FF00757174 /* VideoPlayerViewController.swift in Sources */,
 				D2E7785E28D2C5180084959A /* ChatPresenter.swift in Sources */,
 				D260CEF128DA0AD900F86223 /* ConversationsViewController.swift in Sources */,
 				5FF698ED289EB8C700F1A9A6 /* Extentions.swift in Sources */,
@@ -541,6 +567,8 @@
 				D260CEFE28DA0BF900F86223 /* ConversationsProtocols.swift in Sources */,
 				5F66D7EA289D9A890014FEDD /* AppDelegate.swift in Sources */,
 				D260CF0328DA0CF900F86223 /* ConversationEntity.swift in Sources */,
+				D266B66A28DA341200757174 /* NewConversationViewController.swift in Sources */,
+				D266B66628DA33F100757174 /* PhotoViewerViewController.swift in Sources */,
 				5F66D80E289DAAD70014FEDD /* UserEntity.swift in Sources */,
 				5F66D812289DB9760014FEDD /* MainPresenter.swift in Sources */,
 				D2E7785928D2C2F30084959A /* ChatViewController.swift in Sources */,
