@@ -36,6 +36,13 @@
 		D24859A728D28EAF00E4AB5F /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D24859A628D28EAF00E4AB5F /* FirebaseFirestore */; };
 		D24859A928D28EAF00E4AB5F /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D24859A828D28EAF00E4AB5F /* FirebaseFirestoreSwift */; };
 		D24859AB28D28EAF00E4AB5F /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = D24859AA28D28EAF00E4AB5F /* FirebaseStorage */; };
+		D260CEF128DA0AD900F86223 /* ConversationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260CEF028DA0AD900F86223 /* ConversationsViewController.swift */; };
+		D260CEF328DA0AE400F86223 /* Conversations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D260CEF228DA0AE400F86223 /* Conversations.storyboard */; };
+		D260CEFA28DA0B9600F86223 /* ConversationsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260CEF928DA0B9600F86223 /* ConversationsInteractor.swift */; };
+		D260CEFC28DA0BD000F86223 /* ConversationsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260CEFB28DA0BD000F86223 /* ConversationsPresenter.swift */; };
+		D260CEFE28DA0BF900F86223 /* ConversationsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260CEFD28DA0BF900F86223 /* ConversationsProtocols.swift */; };
+		D260CF0028DA0C2D00F86223 /* ConversationsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260CEFF28DA0C2D00F86223 /* ConversationsRouter.swift */; };
+		D260CF0328DA0CF900F86223 /* ConversationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260CF0228DA0CF900F86223 /* ConversationEntity.swift */; };
 		D2E7785928D2C2F30084959A /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E7785728D2C2F30084959A /* ChatViewController.swift */; };
 		D2E7785C28D2C33C0084959A /* ChatProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E7785B28D2C33C0084959A /* ChatProtocols.swift */; };
 		D2E7785E28D2C5180084959A /* ChatPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E7785D28D2C5180084959A /* ChatPresenter.swift */; };
@@ -67,6 +74,13 @@
 		5F66D818289DC7A50014FEDD /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		5FF698EC289EB8C700F1A9A6 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		D248599728D28E0900E4AB5F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D260CEF028DA0AD900F86223 /* ConversationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsViewController.swift; sourceTree = "<group>"; };
+		D260CEF228DA0AE400F86223 /* Conversations.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Conversations.storyboard; sourceTree = "<group>"; };
+		D260CEF928DA0B9600F86223 /* ConversationsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsInteractor.swift; sourceTree = "<group>"; };
+		D260CEFB28DA0BD000F86223 /* ConversationsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsPresenter.swift; sourceTree = "<group>"; };
+		D260CEFD28DA0BF900F86223 /* ConversationsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsProtocols.swift; sourceTree = "<group>"; };
+		D260CEFF28DA0C2D00F86223 /* ConversationsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsRouter.swift; sourceTree = "<group>"; };
+		D260CF0228DA0CF900F86223 /* ConversationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationEntity.swift; sourceTree = "<group>"; };
 		D2E7785728D2C2F30084959A /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		D2E7785B28D2C33C0084959A /* ChatProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatProtocols.swift; sourceTree = "<group>"; };
 		D2E7785D28D2C5180084959A /* ChatPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPresenter.swift; sourceTree = "<group>"; };
@@ -192,6 +206,7 @@
 				5F66D7EF289D9A890014FEDD /* Main.storyboard */,
 				5F66D7F4289D9A8A0014FEDD /* LaunchScreen.storyboard */,
 				D2E7787128D2D26D0084959A /* Chat.storyboard */,
+				D260CEF228DA0AE400F86223 /* Conversations.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -208,6 +223,7 @@
 		5F66D801289DA0580014FEDD /* Moduls */ = {
 			isa = PBXGroup;
 			children = (
+				D260CEEE28DA0ABD00F86223 /* Conversations */,
 				D2E7785128D2C1240084959A /* Chat */,
 				5F2983E028A1765600D60CBB /* PerfilUser */,
 				5F66D802289DA7950014FEDD /* Main */,
@@ -283,6 +299,67 @@
 				5F66D818289DC7A50014FEDD /* CollectionViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		D260CEEE28DA0ABD00F86223 /* Conversations */ = {
+			isa = PBXGroup;
+			children = (
+				D260CEEF28DA0AC700F86223 /* View */,
+				D260CEF828DA0B7700F86223 /* Interactor */,
+				D260CEF728DA0B7000F86223 /* Protocol */,
+				D260CEF528DA0B6000F86223 /* Presenter */,
+				D260CF0128DA0CD800F86223 /* Entity */,
+				D260CEF628DA0B6A00F86223 /* Router */,
+			);
+			path = Conversations;
+			sourceTree = "<group>";
+		};
+		D260CEEF28DA0AC700F86223 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D260CEF028DA0AD900F86223 /* ConversationsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D260CEF528DA0B6000F86223 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				D260CEFB28DA0BD000F86223 /* ConversationsPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		D260CEF628DA0B6A00F86223 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				D260CEFF28DA0C2D00F86223 /* ConversationsRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		D260CEF728DA0B7000F86223 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				D260CEFD28DA0BF900F86223 /* ConversationsProtocols.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		D260CEF828DA0B7700F86223 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				D260CEF928DA0B9600F86223 /* ConversationsInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		D260CF0128DA0CD800F86223 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				D260CF0228DA0CF900F86223 /* ConversationEntity.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		D2E7785128D2C1240084959A /* Chat */ = {
@@ -415,6 +492,7 @@
 				5F66D7F3289D9A8A0014FEDD /* Assets.xcassets in Resources */,
 				D2E7787228D2D26D0084959A /* Chat.storyboard in Resources */,
 				5F66D7F1289D9A890014FEDD /* Main.storyboard in Resources */,
+				D260CEF328DA0AE400F86223 /* Conversations.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,20 +529,26 @@
 				5F2983F128A17BEC00D60CBB /* PerfilUserIntercator.swift in Sources */,
 				5F66D80C289DA8DA0014FEDD /* MainProtocols.swift in Sources */,
 				D2E7786028D2C5430084959A /* ChatRouter.swift in Sources */,
+				D260CEFA28DA0B9600F86223 /* ConversationsInteractor.swift in Sources */,
 				5F2983EF28A17B1800D60CBB /* PerfilUserPresenter.swift in Sources */,
 				D2E7786A28D2C6590084959A /* ChatInteractor.swift in Sources */,
 				5F66D810289DAE740014FEDD /* MainView.swift in Sources */,
 				D2E7785E28D2C5180084959A /* ChatPresenter.swift in Sources */,
+				D260CEF128DA0AD900F86223 /* ConversationsViewController.swift in Sources */,
 				5FF698ED289EB8C700F1A9A6 /* Extentions.swift in Sources */,
 				5F66D7EE289D9A890014FEDD /* ViewController.swift in Sources */,
 				5F2983ED28A17AC500D60CBB /* PerfilUserViewController.swift in Sources */,
+				D260CEFE28DA0BF900F86223 /* ConversationsProtocols.swift in Sources */,
 				5F66D7EA289D9A890014FEDD /* AppDelegate.swift in Sources */,
+				D260CF0328DA0CF900F86223 /* ConversationEntity.swift in Sources */,
 				5F66D80E289DAAD70014FEDD /* UserEntity.swift in Sources */,
 				5F66D812289DB9760014FEDD /* MainPresenter.swift in Sources */,
 				D2E7785928D2C2F30084959A /* ChatViewController.swift in Sources */,
+				D260CF0028DA0C2D00F86223 /* ConversationsRouter.swift in Sources */,
 				5F66D7EC289D9A890014FEDD /* SceneDelegate.swift in Sources */,
 				5F66D814289DBAFF0014FEDD /* MainInteractor.swift in Sources */,
 				5F66D816289DC23B0014FEDD /* MainRouter.swift in Sources */,
+				D260CEFC28DA0BD000F86223 /* ConversationsPresenter.swift in Sources */,
 				5F2983E928A1773F00D60CBB /* PerfilUserProtocols.swift in Sources */,
 				5F2983E728A176EF00D60CBB /* PerfilUserRouter.swift in Sources */,
 			);
