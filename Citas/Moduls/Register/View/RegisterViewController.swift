@@ -6,10 +6,14 @@
 //
 
 import UIKit
+import FirebaseAuth
+import JGProgressHUD
 
 class RegisterViewController: UIViewController {
 
     var presenter: RegisterPresenterProtocols?
+    
+    private let spinner = JGProgressHUD(style: .dark)
     
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -19,9 +23,12 @@ class RegisterViewController: UIViewController {
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "person")
+        imageView.image = UIImage(systemName: "person.circle")
         imageView.tintColor = .gray
         imageView.contentMode = .scaleAspectFit
+        imageView.layer.masksToBounds = true
+        imageView.layer.borderWidth = 2
+        imageView.layer.borderColor = UIColor.lightGray.cgColor
         return imageView
     }()
     
@@ -132,6 +139,9 @@ class RegisterViewController: UIViewController {
                                y: 30,
                                width: size,
                                height: size)
+        
+        imageView.layer.cornerRadius = imageView.width/2.0
+        
         firstNameField.frame = CGRect(x: 30,
                                    y: imageView.bottom+10,
                                    width:scrollView.width-60,
@@ -156,7 +166,7 @@ class RegisterViewController: UIViewController {
     }
     
     @objc private func didChangeImage() {
-        print("Chaneg")
+        presentPhotoActionSheet()
     }
     
     @objc private func registerButtonTapped() {
@@ -169,13 +179,69 @@ class RegisterViewController: UIViewController {
             alertUserLoginError()
             return
         }
+        
+        spinner.show(in: view)
+
         // Firebase Log In
+
+        DatabaseManager.shared.userExists(with: email, completion: { [weak self] exists in
+            guard let strongSelf = self else {
+                return
+            }
+
+            DispatchQueue.main.async {
+                strongSelf.spinner.dismiss()
+            }
+
+            guard !exists else {
+                // user already exists
+                strongSelf.alertUserLoginError(
+                    message: "Looks like a user account for that email address already exists."
+                )
+                return
+            }
+
+            FirebaseAuth.Auth.auth().createUser(withEmail: email, password: pwd, completion: { authResult, error in
+                guard authResult != nil, error == nil else {
+                    print("Error cureating user")
+                    return
+                }
+
+                UserDefaults.standard.setValue(email, forKey: "email")
+                UserDefaults.standard.setValue("\(firstName) \(lastName)", forKey: "name")
+
+
+                let chatUser = ChatAppUser(firstName: firstName,
+                                          lastName: lastName,
+                                          emailAddress: email)
+                DatabaseManager.shared.insertUser(with: chatUser, completion: { success in
+                    if success {
+                        // upload image
+                        guard let image = strongSelf.imageView.image,
+                            let data = image.pngData() else {
+                                return
+                        }
+                        let filename = chatUser.profilePictureFileName
+                        StorageManager.shared.uploadProfilePicture(with: data, fileName: filename, completion: { result in
+                            switch result {
+                            case .success(let downloadUrl):
+                                UserDefaults.standard.set(downloadUrl, forKey: "profile_picture_url")
+                                print(downloadUrl)
+                            case .failure(let error):
+                                print("Storage maanger error: \(error)")
+                            }
+                        })
+                    }
+                })
+
+                strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+            })
+        })
     }
-    
-    func alertUserLoginError() {
+
+    func alertUserLoginError(message: String = "Please enter all informat") {
         let alert = UIAlertController(title: "Woops",
-                                      message:
-                                        "Please enter all informat",
+                                      message: message,
                                       preferredStyle: .alert)
         alert.addAction(UIAlertAction(title:"Dismiss",
                                       style: .cancel, handler: nil))
@@ -199,4 +265,64 @@ extension RegisterViewController: UITextFieldDelegate {
         return true
     }
     
+}
+
+// MARK: RegisterViewController - UIImagePicker
+extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
+    func presentPhotoActionSheet() {
+        let actionSheet = UIAlertController(title: "Profile Picture",
+                                            message: "How would you like to select a picture?",
+                                            preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "Cancel",
+                                            style: .cancel,
+                                            handler: nil))
+        actionSheet.addAction(UIAlertAction(title: "Take Photo",
+                                            style: .default,
+                                            handler: { [weak self] _ in
+
+                                                self?.presentCamera()
+
+        }))
+        actionSheet.addAction(UIAlertAction(title: "Chose Photo",
+                                            style: .default,
+                                            handler: { [weak self] _ in
+
+                                                self?.presentPhotoPicker()
+
+        }))
+
+        present(actionSheet, animated: true)
+    }
+
+    func presentCamera() {
+        let vc = UIImagePickerController()
+        vc.sourceType = .camera
+        vc.delegate = self
+        vc.allowsEditing = true
+        present(vc, animated: true)
+    }
+
+    func presentPhotoPicker() {
+        let vc = UIImagePickerController()
+        vc.sourceType = .photoLibrary
+        vc.delegate = self
+        vc.allowsEditing = true
+        present(vc, animated: true)
+    }
+
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        // UIImagePickerController.InfoKey.original
+        guard let selectedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
+            return
+        }
+
+        self.imageView.image = selectedImage
+    }
+
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+
 }

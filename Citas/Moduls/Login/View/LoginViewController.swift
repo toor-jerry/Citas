@@ -6,6 +6,10 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FBSDKLoginKit
+import GoogleSignIn
+import JGProgressHUD
 
 class LoginViewController: UIViewController {
 
