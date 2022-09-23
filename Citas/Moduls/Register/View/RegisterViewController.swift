@@ -280,9 +280,18 @@ extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationC
         actionSheet.addAction(UIAlertAction(title: "Take Photo",
                                             style: .default,
                                             handler: { [weak self] _ in
-
-                                                self?.presentCamera()
-
+            if !UIImagePickerController.isSourceTypeAvailable(.camera) {
+                let alertController = UIAlertController(title: nil, message: "Device has no camera.", preferredStyle: .alert)
+                
+                let okAction = UIAlertAction(title: "Alright", style: .default, handler: { (alert: UIAlertAction!) in
+                })
+                
+                alertController.addAction(okAction)
+                self?.present(alertController, animated: true, completion: nil)
+            } else {
+                self?.presentCamera()
+            }
+            
         }))
         actionSheet.addAction(UIAlertAction(title: "Chose Photo",
                                             style: .default,
