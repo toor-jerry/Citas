@@ -43,6 +43,7 @@
 		D2020DAC28DD726500D564CD /* ConversationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2020DAB28DD726500D564CD /* ConversationTableViewCell.swift */; };
 		D2020DAE28DD728100D564CD /* NewConversationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2020DAD28DD728100D564CD /* NewConversationCell.swift */; };
 		D248599828D28E0900E4AB5F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D248599728D28E0900E4AB5F /* GoogleService-Info.plist */; };
+		D252749B28DF95070016F435 /* LogoAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D252749A28DF95070016F435 /* LogoAnimationViewController.swift */; };
 		D260CF0728DA11D700F86223 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D260CF0628DA11D700F86223 /* Login.storyboard */; };
 		D260CF0928DA11F200F86223 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260CF0828DA11F200F86223 /* LoginViewController.swift */; };
 		D260CF0C28DA15A300F86223 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260CF0B28DA15A300F86223 /* LoginInteractor.swift */; };
@@ -105,6 +106,7 @@
 		D2020DAB28DD726500D564CD /* ConversationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationTableViewCell.swift; sourceTree = "<group>"; };
 		D2020DAD28DD728100D564CD /* NewConversationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationCell.swift; sourceTree = "<group>"; };
 		D248599728D28E0900E4AB5F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D252749A28DF95070016F435 /* LogoAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoAnimationViewController.swift; sourceTree = "<group>"; };
 		D260CF0628DA11D700F86223 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		D260CF0828DA11F200F86223 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D260CF0B28DA15A300F86223 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
@@ -387,6 +389,7 @@
 				D2020DA928DD723900D564CD /* ProfileViewController.swift */,
 				D2020DAB28DD726500D564CD /* ConversationTableViewCell.swift */,
 				D2020DAD28DD728100D564CD /* NewConversationCell.swift */,
+				D252749A28DF95070016F435 /* LogoAnimationViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -721,6 +724,7 @@
 				5F66D80E289DAAD70014FEDD /* UserEntity.swift in Sources */,
 				5F66D812289DB9760014FEDD /* MainPresenter.swift in Sources */,
 				D2020D8D28DD688D00D564CD /* User.swift in Sources */,
+				D252749B28DF95070016F435 /* LogoAnimationViewController.swift in Sources */,
 				D2020D8A28DD67E400D564CD /* StorageManager.swift in Sources */,
 				5F66D7EC289D9A890014FEDD /* SceneDelegate.swift in Sources */,
 				5F66D814289DBAFF0014FEDD /* MainInteractor.swift in Sources */,

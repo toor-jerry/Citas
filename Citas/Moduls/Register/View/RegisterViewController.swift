@@ -176,8 +176,12 @@ class RegisterViewController: UIViewController {
         passwdField.resignFirstResponder()
         guard let firstName = firstNameField.text, let lastName = lastNameField.text, let email = emailField.text, let pwd = passwdField.text, !firstName.isEmpty, !lastName.isEmpty,
               !email.isEmpty, !pwd.isEmpty, pwd.count >= 6 else {
-            alertUserLoginError()
+            alertUserLoginError(message: "Complete por favor todos los campos requeridos.")
             return
+        }
+        
+        if !email.validarEmail() {
+            alertUserLoginError(message: "Ingrese un Email válido!")
         }
         
         spinner.show(in: view)
@@ -237,15 +241,6 @@ class RegisterViewController: UIViewController {
                 strongSelf.navigationController?.dismiss(animated: true, completion: nil)
             })
         })
-    }
-
-    func alertUserLoginError(message: String = "Please enter all informat") {
-        let alert = UIAlertController(title: "Woops",
-                                      message: message,
-                                      preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title:"Dismiss",
-                                      style: .cancel, handler: nil))
-        present(alert, animated: true)
     }
 }
 

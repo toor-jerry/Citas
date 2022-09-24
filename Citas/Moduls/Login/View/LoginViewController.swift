@@ -138,6 +138,11 @@ class LoginViewController: UIViewController {
             alertUserLoginError()
             return
         }
+        
+        if !email.validarEmail() {
+            alertUserLoginError(message: "Complete por favor todos los campos requeridos.")
+        }
+        
         // Firebase Log In
     }
     
@@ -149,15 +154,6 @@ class LoginViewController: UIViewController {
         self.present(viewController, animated: true)
     }
     
-    func alertUserLoginError() {
-        let alert = UIAlertController(title: "Woops",
-                                      message:
-                                        "Please enter all informat",
-                                      preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title:"Dismiss",
-                                      style: .cancel, handler: nil))
-        present(alert, animated: true)
-    }
 }
 
 extension LoginViewController: LoginViewProtocols { }

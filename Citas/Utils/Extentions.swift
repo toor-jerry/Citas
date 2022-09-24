@@ -59,3 +59,47 @@ extension Notification.Name {
     /// Notificaiton  when user logs in
     static let didLogInNotification = Notification.Name("didLogInNotification")
 }
+
+// Mark: String - Email Validation
+extension String {
+    
+    func validarEmail() -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: self)
+    }
+    
+    func cleanName() -> String {
+        return self.folding(options: .diacriticInsensitive, locale: nil)
+            .lowercased()
+            .trimmingCharacters(in: [" "])
+    }
+    
+
+    func clean() -> String {
+        let cleanedString = self.folding(options: [.diacriticInsensitive, .caseInsensitive, .widthInsensitive], locale: nil)
+        return cleanedString.components(separatedBy: CharacterSet.alphanumerics.inverted).joined(separator: "_")
+    }
+    func removeUnusedData() -> String{
+        let cleanPhone = self.replacingOccurrences(of: " ", with: "")
+        
+        return String(cleanPhone.suffix(10))
+    }
+}
+
+extension UIViewController {
+    
+    func alertUserLoginError(message: String = "Un error a ocurrido!") {
+        let alert = UIAlertController(title: "Woops",
+                                      message: message,
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title:"Cerrar",
+                                      style: .cancel, handler: nil))
+        present(alert, animated: true)
+    }
+    
+    func toUIColorFromRGB(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat = 1.0) -> UIColor {
+        return UIColor(red: red/255, green: green/255, blue: blue/255, alpha: alpha)
+    }
+}

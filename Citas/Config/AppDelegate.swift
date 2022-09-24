@@ -23,20 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
 
         // Apenas arranque mandará a llamar la vista principal
-        var viewController = PageErrorRouter.createModuls()
-        if let viewC = LoginRouter.createModuls() as? LoginViewController {
-            viewController = viewC
-        } else {
-            if let viewC = LoginRouter.createModuls() as? MainView {
-                viewController = viewC
-            }
-        }
-            self.window = UIWindow()
-            let screen: UIScreen = UIScreen.main
-            self.window?.frame = screen.bounds
-            window?.rootViewController = viewController
-            window?.makeKeyAndVisible()
-
+        let logoVC: LogoAnimationViewController = LogoAnimationViewController()
+        self.window = UIWindow()
+        let screen: UIScreen = UIScreen.main
+        self.window?.frame = screen.bounds
+        self.window?.rootViewController = logoVC
+        self.window?.makeKeyAndVisible()
         return true
     }
 }
