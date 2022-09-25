@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PasswordTextField
 import FirebaseAuth
 import FBSDKLoginKit
 import GoogleSignIn
@@ -14,6 +15,8 @@ import JGProgressHUD
 class LoginViewController: UIViewController {
 
     var presenter: LoginPresenterProtocols?
+    
+    private let spinner = JGProgressHUD(style: .dark)
     
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -43,8 +46,9 @@ class LoginViewController: UIViewController {
         return field
     }()
     
-    private let passwdField: UITextField = {
-        let field = UITextField()
+    private let passwdField: PasswordTextField = {
+        let field = PasswordTextField()
+        field.imageTintColor = .systemPink
         field.autocapitalizationType = .none
         field.autocorrectionType = .no
         field.returnKeyType = .done
@@ -90,9 +94,11 @@ class LoginViewController: UIViewController {
         registerButton.addTarget(self,
                               action: #selector(showRegisterView),
                               for: .touchUpInside)
+        passwdField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         
         emailField.delegate = self
         passwdField.delegate = self
+        // emailField.text = "gerarchicharo37@gmail.com"
         
         // Add subviews
         view.addSubview(scrollView)
@@ -129,19 +135,44 @@ class LoginViewController: UIViewController {
                                    width:scrollView.width-60,
                                    height:52)
     }
+
+        @objc func textFieldDidChange(_ textField: UITextField) {
+            var nivelSecurity = 0
+            if let text = textField.text {
+                if text.count >= 8 {
+                    nivelSecurity += 1
+                }
+                
+                if text.range(of: "[0-9]", options: .regularExpression) != nil{
+                    nivelSecurity += 1
+                }
+                
+                if text.range(of: "[A-Z]", options: .regularExpression) != nil {
+                    nivelSecurity += 1
+                }
+            }
+        }
     
     @objc private func loginButtonTapped() {
         emailField.resignFirstResponder()
         passwdField.resignFirstResponder()
         guard let email = emailField.text, let pwd = passwdField.text,
-              !email.isEmpty, !pwd.isEmpty, pwd.count >= 6 else {
-            alertUserLoginError()
+              !email.isEmpty, !pwd.isEmpty else {
+            alertUserLoginError(message: "Complete por favor todos los campos requeridos.")
             return
         }
         
         if !email.validarEmail() {
             alertUserLoginError(message: "Complete por favor todos los campos requeridos.")
+            return
         }
+    
+        if passwdField.isInvalid() {
+            alertUserLoginError(message: "Por favor valide la seguridad de su contraseña.\n Su contraseña debe contener una longitud minima de 8 carácteres, una letra mayúscula y un número.")
+            return
+        }
+        
+        spinner.show(in: view)
         
         // Firebase Log In
     }

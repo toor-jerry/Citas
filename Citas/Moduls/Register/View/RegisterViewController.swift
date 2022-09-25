@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PasswordTextField
 import FirebaseAuth
 import JGProgressHUD
 
@@ -77,8 +78,9 @@ class RegisterViewController: UIViewController {
         return field
     }()
     
-    private let passwdField: UITextField = {
-        let field = UITextField()
+    private let passwdField: PasswordTextField = {
+        let field = PasswordTextField()
+        field.imageTintColor = .systemPink
         field.autocapitalizationType = .none
         field.autocorrectionType = .no
         field.returnKeyType = .done
@@ -175,13 +177,19 @@ class RegisterViewController: UIViewController {
         emailField.resignFirstResponder()
         passwdField.resignFirstResponder()
         guard let firstName = firstNameField.text, let lastName = lastNameField.text, let email = emailField.text, let pwd = passwdField.text, !firstName.isEmpty, !lastName.isEmpty,
-              !email.isEmpty, !pwd.isEmpty, pwd.count >= 6 else {
+              !email.isEmpty, !pwd.isEmpty else {
             alertUserLoginError(message: "Complete por favor todos los campos requeridos.")
             return
         }
         
         if !email.validarEmail() {
             alertUserLoginError(message: "Ingrese un Email válido!")
+            return
+        }
+        
+        if passwdField.isInvalid() {
+            alertUserLoginError(message: "Por favor valide la seguridad de su contraseña.\n Su contraseña debe contener una longitud minima de 8 carácteres, una letra mayúscula y un número.")
+            return
         }
         
         spinner.show(in: view)

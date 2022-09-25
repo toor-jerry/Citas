@@ -19,5 +19,8 @@ target 'Citas' do
   pod 'JGProgressHUD'
   pod 'RealmSwift'
   pod 'SDWebImage'
+
+  pod 'PasswordTextField'
+
 end
 
