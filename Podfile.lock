@@ -127,6 +127,7 @@ PODS:
     - AppAuth/Core (~> 1.6)
     - GTMSessionFetcher/Core (< 3.0, >= 1.5)
   - GTMSessionFetcher/Core (2.1.0)
+  - GTProgressBar (0.3.3)
   - InputBarAccessoryView (5.5.0):
     - InputBarAccessoryView/Core (= 5.5.0)
   - InputBarAccessoryView/Core (5.5.0)
@@ -159,6 +160,7 @@ DEPENDENCIES:
   - FirebaseDatabase
   - FirebaseStorage
   - GoogleSignIn
+  - GTProgressBar
   - JGProgressHUD
   - MessageKit
   - PasswordTextField
@@ -191,6 +193,7 @@ SPEC REPOS:
     - GoogleUtilities
     - GTMAppAuth
     - GTMSessionFetcher
+    - GTProgressBar
     - InputBarAccessoryView
     - JGProgressHUD
     - leveldb-library
@@ -227,6 +230,7 @@ SPEC CHECKSUMS:
   GoogleUtilities: 1d20a6ad97ef46f67bbdec158ce00563a671ebb7
   GTMAppAuth: 0ff230db599948a9ad7470ca667337803b3fc4dd
   GTMSessionFetcher: ffbb25ec00ebcb5201adab0a56d808f6f1902d9f
+  GTProgressBar: a480283ecb0ada50de16c71e634892826928f640
   InputBarAccessoryView: 1d7b0a672b36e370f01f264b3907ef39d03328e3
   JGProgressHUD: d83d7a981b85d11205e19ff8ad5bb9c40571c847
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
@@ -238,6 +242,6 @@ SPEC CHECKSUMS:
   RealmSwift: 35d8d318b7e5a8dbc7096c2a243184e4d19abcc0
   SDWebImage: af5bbffef2cde09f148d826f9733dcde1a9414cd
 
-PODFILE CHECKSUM: 55ce8a2bb0a89791ffc12f27624d31843e60e7d3
+PODFILE CHECKSUM: b109a968bdd137dec52b4388123937f05e390564
 
 COCOAPODS: 1.11.3

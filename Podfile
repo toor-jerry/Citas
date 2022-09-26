@@ -22,5 +22,7 @@ target 'Citas' do
 
   pod 'PasswordTextField'
 
+  pod 'GTProgressBar'
+
 end
 

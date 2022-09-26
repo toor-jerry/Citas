@@ -9,6 +9,7 @@ import UIKit
 import PasswordTextField
 import FirebaseAuth
 import JGProgressHUD
+import GTProgressBar
 
 class RegisterViewController: UIViewController {
 
@@ -95,6 +96,19 @@ class RegisterViewController: UIViewController {
         return field
     }()
     
+    private let progressBar: GTProgressBar = {
+        let progressBar = GTProgressBar(frame: CGRect(x: 0, y: 0, width: 300, height: 15))
+        progressBar.progress = 0
+        progressBar.barBorderColor = .lightGray
+        progressBar.barFillColor = .lightGray
+        progressBar.barBackgroundColor = .systemGray4
+        progressBar.barBorderWidth = 1
+        progressBar.barFillInset = 0
+        progressBar.barMaxHeight = 22
+        progressBar.displayLabel = false
+        return progressBar
+    }()
+    
     private let registerButton: UIButton = {
         let button = UIButton()
         button.setTitle("Register", for: .normal)
@@ -112,6 +126,7 @@ class RegisterViewController: UIViewController {
         registerButton.addTarget(self,
                               action: #selector(registerButtonTapped),
                               for: .touchUpInside)
+        passwdField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         
         emailField.delegate = self
         passwdField.delegate = self
@@ -123,6 +138,7 @@ class RegisterViewController: UIViewController {
         scrollView.addSubview(lastNameField)
         scrollView.addSubview(emailField)
         scrollView.addSubview(passwdField)
+        scrollView.addSubview(progressBar)
         scrollView.addSubview(registerButton)
         
         imageView.isUserInteractionEnabled = true
@@ -156,19 +172,62 @@ class RegisterViewController: UIViewController {
                                    y: lastNameField.bottom+10,
                                    width:scrollView.width-60,
                                    height:52)
-        
         passwdField.frame = CGRect(x: 30,
                                    y: emailField.bottom+10,
                                    width:scrollView.width-60,
                                    height:52)
-        registerButton.frame = CGRect(x: 30,
+        progressBar.frame = CGRect(x: 30,
                                    y: passwdField.bottom+10,
+                                   width:scrollView.width-60,
+                                   height: 25)
+        registerButton.frame = CGRect(x: 30,
+                                   y: progressBar.bottom+10,
                                    width:scrollView.width-60,
                                    height:52)
     }
     
     @objc private func didChangeImage() {
         presentPhotoActionSheet()
+    }
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        var nivelSecurity = 0.0
+        if let text = textField.text {
+            if text.count >= 8 {
+                nivelSecurity += 1.0
+            }
+            
+            if text.range(of: "[0-9]", options: .regularExpression) != nil{
+                nivelSecurity += 1.0
+            }
+            
+            if text.range(of: "[A-Z]", options: .regularExpression) != nil {
+                nivelSecurity += 1.0
+            }
+            
+            switch nivelSecurity {
+            case 1.0:
+                progressBar.barBorderColor = UIColor(named: "RedFill") ?? UIColor.red
+                progressBar.barFillColor = UIColor(named: "RedFill") ?? UIColor.red
+                progressBar.barBackgroundColor = UIColor(named: "RedBackground") ?? UIColor.systemRed
+            case 2.0:
+                progressBar.barBorderColor = UIColor(named: "WarningFill") ?? UIColor.yellow
+                progressBar.barFillColor = UIColor(named: "WarningFill") ?? UIColor.yellow
+                progressBar.barBackgroundColor = UIColor(named: "WarningBackground") ?? UIColor.systemYellow
+            case 3.0:
+                progressBar.barBorderColor = UIColor(named: "GreenFill") ?? UIColor.yellow
+                progressBar.barFillColor = UIColor(named: "GreenFill") ?? UIColor.yellow
+                progressBar.barBackgroundColor = UIColor(named: "GreenFill") ?? UIColor.systemYellow
+            default:
+                progressBar.barBorderColor = .lightGray
+                progressBar.barFillColor = .lightGray
+                progressBar.barBackgroundColor = .systemGray4
+            }
+            
+            nivelSecurity = nivelSecurity / 3.0
+            
+            self.progressBar.progress = nivelSecurity
+        }
     }
     
     @objc private func registerButtonTapped() {

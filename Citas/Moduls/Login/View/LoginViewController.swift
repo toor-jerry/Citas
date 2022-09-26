@@ -11,6 +11,7 @@ import FirebaseAuth
 import FBSDKLoginKit
 import GoogleSignIn
 import JGProgressHUD
+import GTProgressBar
 
 class LoginViewController: UIViewController {
 
@@ -63,6 +64,19 @@ class LoginViewController: UIViewController {
         return field
     }()
     
+    private let progressBar: GTProgressBar = {
+        let progressBar = GTProgressBar(frame: CGRect(x: 0, y: 0, width: 300, height: 15))
+        progressBar.progress = 0
+        progressBar.barBorderColor = .lightGray
+        progressBar.barFillColor = .lightGray
+        progressBar.barBackgroundColor = .systemGray4
+        progressBar.barBorderWidth = 1
+        progressBar.barFillInset = 0
+        progressBar.barMaxHeight = 22
+        progressBar.displayLabel = false
+        return progressBar
+    }()
+    
     private let loginButton: UIButton = {
         let button = UIButton()
         button.setTitle("Log In", for: .normal)
@@ -105,6 +119,7 @@ class LoginViewController: UIViewController {
         scrollView.addSubview(imageView)
         scrollView.addSubview(emailField)
         scrollView.addSubview(passwdField)
+        scrollView.addSubview(progressBar)
         scrollView.addSubview(loginButton)
         scrollView.addSubview(registerButton)
     }
@@ -126,8 +141,12 @@ class LoginViewController: UIViewController {
                                    y: emailField.bottom+10,
                                    width:scrollView.width-60,
                                    height:52)
-        loginButton.frame = CGRect(x: 30,
+        progressBar.frame = CGRect(x: 30,
                                    y: passwdField.bottom+10,
+                                   width:scrollView.width-60,
+                                   height: 25)
+        loginButton.frame = CGRect(x: 30,
+                                   y: progressBar.bottom+10,
                                    width:scrollView.width-60,
                                    height:52)
         registerButton.frame = CGRect(x: 30,
@@ -137,19 +156,42 @@ class LoginViewController: UIViewController {
     }
 
         @objc func textFieldDidChange(_ textField: UITextField) {
-            var nivelSecurity = 0
+            var nivelSecurity = 0.0
             if let text = textField.text {
                 if text.count >= 8 {
-                    nivelSecurity += 1
+                    nivelSecurity += 1.0
                 }
                 
                 if text.range(of: "[0-9]", options: .regularExpression) != nil{
-                    nivelSecurity += 1
+                    nivelSecurity += 1.0
                 }
                 
                 if text.range(of: "[A-Z]", options: .regularExpression) != nil {
-                    nivelSecurity += 1
+                    nivelSecurity += 1.0
                 }
+                
+                switch nivelSecurity {
+                case 1.0:
+                    progressBar.barBorderColor = UIColor(named: "RedFill") ?? UIColor.red
+                    progressBar.barFillColor = UIColor(named: "RedFill") ?? UIColor.red
+                    progressBar.barBackgroundColor = UIColor(named: "RedBackground") ?? UIColor.systemRed
+                case 2.0:
+                    progressBar.barBorderColor = UIColor(named: "WarningFill") ?? UIColor.yellow
+                    progressBar.barFillColor = UIColor(named: "WarningFill") ?? UIColor.yellow
+                    progressBar.barBackgroundColor = UIColor(named: "WarningBackground") ?? UIColor.systemYellow
+                case 3.0:
+                    progressBar.barBorderColor = UIColor(named: "GreenFill") ?? UIColor.yellow
+                    progressBar.barFillColor = UIColor(named: "GreenFill") ?? UIColor.yellow
+                    progressBar.barBackgroundColor = UIColor(named: "GreenFill") ?? UIColor.systemYellow
+                default:
+                    progressBar.barBorderColor = .lightGray
+                    progressBar.barFillColor = .lightGray
+                    progressBar.barBackgroundColor = .systemGray4
+                }
+                
+                nivelSecurity = nivelSecurity / 3.0
+                
+                self.progressBar.progress = nivelSecurity
             }
         }
     
