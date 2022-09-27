@@ -131,7 +131,7 @@ extension String {
                 barBackgroundColor = .systemGray4
             }
             
-            nivelSecurity = nivelSecurity / 3.0
+            nivelSecurity /= 3.0
             
             return ProgressBarColor(barBorderColor: barBorderColor, barFillColor: barFillColor, barBackgroundColor: barBackgroundColor, nivelSecurity: nivelSecurity)
         }

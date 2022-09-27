@@ -87,7 +87,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     if success {
                         // upload image
 
-                        if user.profile?.hasImage == true {
+                        if user.profile?.hasImage != nil {
                             guard let url = user.profile?.imageURL(withDimension: 200) else {
                                 return
                             }

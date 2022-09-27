@@ -62,6 +62,10 @@
 		D266B68E28DA5C1600757174 /* PageErrorProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D266B68D28DA5C1600757174 /* PageErrorProtocols.swift */; };
 		D266B69028DA5C3500757174 /* PageErrorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D266B68F28DA5C3500757174 /* PageErrorPresenter.swift */; };
 		D266B69228DA5C5100757174 /* PageErrorRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D266B69128DA5C5100757174 /* PageErrorRouter.swift */; };
+		D2D40A9E28E28616003C5635 /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D40A9D28E28616003C5635 /* extension.swift */; };
+		D2D40AA028E2871D003C5635 /* extensionChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D40A9F28E2871D003C5635 /* extensionChatViewController.swift */; };
+		D2D40AA228E289DF003C5635 /* extensionDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D40AA128E289DF003C5635 /* extensionDatabaseManager.swift */; };
+		D2D40AA428E28A6E003C5635 /* extensionDBM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D40AA328E28A6E003C5635 /* extensionDBM.swift */; };
 		FF2944F0F2A23BA1470BC6EB /* Pods_Citas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F45BFBE83136F12BF5FEA9B3 /* Pods_Citas.framework */; };
 /* End PBXBuildFile section */
 
@@ -125,6 +129,10 @@
 		D266B68D28DA5C1600757174 /* PageErrorProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageErrorProtocols.swift; sourceTree = "<group>"; };
 		D266B68F28DA5C3500757174 /* PageErrorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageErrorPresenter.swift; sourceTree = "<group>"; };
 		D266B69128DA5C5100757174 /* PageErrorRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageErrorRouter.swift; sourceTree = "<group>"; };
+		D2D40A9D28E28616003C5635 /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
+		D2D40A9F28E2871D003C5635 /* extensionChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionChatViewController.swift; sourceTree = "<group>"; };
+		D2D40AA128E289DF003C5635 /* extensionDatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionDatabaseManager.swift; sourceTree = "<group>"; };
+		D2D40AA328E28A6E003C5635 /* extensionDBM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionDBM.swift; sourceTree = "<group>"; };
 		F45BFBE83136F12BF5FEA9B3 /* Pods_Citas.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Citas.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -390,6 +398,10 @@
 				D2020DAB28DD726500D564CD /* ConversationTableViewCell.swift */,
 				D2020DAD28DD728100D564CD /* NewConversationCell.swift */,
 				D252749A28DF95070016F435 /* LogoAnimationViewController.swift */,
+				D2D40A9D28E28616003C5635 /* extension.swift */,
+				D2D40A9F28E2871D003C5635 /* extensionChatViewController.swift */,
+				D2D40AA128E289DF003C5635 /* extensionDatabaseManager.swift */,
+				D2D40AA328E28A6E003C5635 /* extensionDBM.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -696,6 +708,7 @@
 				D2020D9528DD694500D564CD /* SearchResult.swift in Sources */,
 				5F66D80C289DA8DA0014FEDD /* MainProtocols.swift in Sources */,
 				5F2983EF28A17B1800D60CBB /* PerfilUserPresenter.swift in Sources */,
+				D2D40AA028E2871D003C5635 /* extensionChatViewController.swift in Sources */,
 				D266B68C28DA5BF300757174 /* PageErrorInteractor.swift in Sources */,
 				D260CF1528DA17A600F86223 /* LoginRouter.swift in Sources */,
 				D266B68E28DA5C1600757174 /* PageErrorProtocols.swift in Sources */,
@@ -716,7 +729,9 @@
 				5F66D7EA289D9A890014FEDD /* AppDelegate.swift in Sources */,
 				D2020D9A28DD6B1400D564CD /* ChatViewController.swift in Sources */,
 				D2020DAE28DD728100D564CD /* NewConversationCell.swift in Sources */,
+				D2D40AA428E28A6E003C5635 /* extensionDBM.swift in Sources */,
 				D2020D9C28DD6CD300D564CD /* LocationPickerViewController.swift in Sources */,
+				D2D40A9E28E28616003C5635 /* extension.swift in Sources */,
 				D2020D9328DD692E00D564CD /* Message.swift in Sources */,
 				D2020D9728DD697000D564CD /* ProfileModel.swift in Sources */,
 				D266B69228DA5C5100757174 /* PageErrorRouter.swift in Sources */,
@@ -724,6 +739,7 @@
 				5F66D80E289DAAD70014FEDD /* UserEntity.swift in Sources */,
 				5F66D812289DB9760014FEDD /* MainPresenter.swift in Sources */,
 				D2020D8D28DD688D00D564CD /* User.swift in Sources */,
+				D2D40AA228E289DF003C5635 /* extensionDatabaseManager.swift in Sources */,
 				D252749B28DF95070016F435 /* LogoAnimationViewController.swift in Sources */,
 				D2020D8A28DD67E400D564CD /* StorageManager.swift in Sources */,
 				5F66D7EC289D9A890014FEDD /* SceneDelegate.swift in Sources */,
