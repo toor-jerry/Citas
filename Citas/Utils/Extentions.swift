@@ -8,6 +8,13 @@
 import UIKit
 import PasswordTextField
 
+struct ProgressBarColor {
+    var barBorderColor: UIColor
+    var barFillColor: UIColor
+    var barBackgroundColor: UIColor
+    var nivelSecurity: Double
+}
+
 extension MainView {
 
     // Tranparencia script
@@ -66,7 +73,7 @@ extension String {
     
     func validarEmail() -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-
+        
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailTest.evaluate(with: self)
     }
@@ -77,7 +84,7 @@ extension String {
             .trimmingCharacters(in: [" "])
     }
     
-
+    
     func clean() -> String {
         let cleanedString = self.folding(options: [.diacriticInsensitive, .caseInsensitive, .widthInsensitive], locale: nil)
         return cleanedString.components(separatedBy: CharacterSet.alphanumerics.inverted).joined(separator: "_")
@@ -88,7 +95,7 @@ extension String {
         return String(cleanPhone.suffix(10))
     }
     
-    func checkNivelSecurityPassword() -> (barBorderColor: UIColor, barFillColor: UIColor, barBackgroundColor: UIColor, nivelSecurity: Double) {
+    func checkNivelSecurityPassword() -> ProgressBarColor {
         let textPassword = self
         var nivelSecurity = 0.0
         var barBorderColor, barFillColor, barBackgroundColor : UIColor
@@ -126,7 +133,7 @@ extension String {
             
             nivelSecurity = nivelSecurity / 3.0
             
-            return (barBorderColor, barFillColor, barBackgroundColor, nivelSecurity)
+            return ProgressBarColor(barBorderColor: barBorderColor, barFillColor: barFillColor, barBackgroundColor: barBackgroundColor, nivelSecurity: nivelSecurity)
         }
     }
 
