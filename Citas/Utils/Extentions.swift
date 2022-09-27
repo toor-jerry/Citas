@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PasswordTextField
 
 extension MainView {
 
@@ -86,7 +87,48 @@ extension String {
         
         return String(cleanPhone.suffix(10))
     }
-}
+    
+    func checkNivelSecurityPassword() -> (barBorderColor: UIColor, barFillColor: UIColor, barBackgroundColor: UIColor, nivelSecurity: Double) {
+        let textPassword = self
+        var nivelSecurity = 0.0
+        var barBorderColor, barFillColor, barBackgroundColor : UIColor
+        
+            if textPassword.count >= 8 {
+                nivelSecurity += 1.0
+            }
+            
+            if textPassword.range(of: "[0-9]", options: .regularExpression) != nil{
+                nivelSecurity += 1.0
+            }
+            
+            if textPassword.range(of: "[A-Z]", options: .regularExpression) != nil {
+                nivelSecurity += 1.0
+            }
+            
+            switch nivelSecurity {
+            case 1.0:
+                barBorderColor = UIColor(named: "RedFill") ?? UIColor.red
+                barFillColor = UIColor(named: "RedFill") ?? UIColor.red
+                barBackgroundColor = UIColor(named: "RedBackground") ?? UIColor.systemRed
+            case 2.0:
+                barBorderColor = UIColor(named: "WarningFill") ?? UIColor.yellow
+                barFillColor = UIColor(named: "WarningFill") ?? UIColor.yellow
+                barBackgroundColor = UIColor(named: "WarningBackground") ?? UIColor.systemYellow
+            case 3.0:
+                barBorderColor = UIColor(named: "GreenFill") ?? UIColor.yellow
+                barFillColor = UIColor(named: "GreenFill") ?? UIColor.yellow
+                barBackgroundColor = UIColor(named: "GreenFill") ?? UIColor.systemYellow
+            default:
+                barBorderColor = .lightGray
+                barFillColor = .lightGray
+                barBackgroundColor = .systemGray4
+            }
+            
+            nivelSecurity = nivelSecurity / 3.0
+            
+            return (barBorderColor, barFillColor, barBackgroundColor, nivelSecurity)
+        }
+    }
 
 extension UIViewController {
     

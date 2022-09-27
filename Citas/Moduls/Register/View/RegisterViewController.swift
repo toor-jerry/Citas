@@ -191,42 +191,12 @@ class RegisterViewController: UIViewController {
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
-        var nivelSecurity = 0.0
         if let text = textField.text {
-            if text.count >= 8 {
-                nivelSecurity += 1.0
-            }
-            
-            if text.range(of: "[0-9]", options: .regularExpression) != nil{
-                nivelSecurity += 1.0
-            }
-            
-            if text.range(of: "[A-Z]", options: .regularExpression) != nil {
-                nivelSecurity += 1.0
-            }
-            
-            switch nivelSecurity {
-            case 1.0:
-                progressBar.barBorderColor = UIColor(named: "RedFill") ?? UIColor.red
-                progressBar.barFillColor = UIColor(named: "RedFill") ?? UIColor.red
-                progressBar.barBackgroundColor = UIColor(named: "RedBackground") ?? UIColor.systemRed
-            case 2.0:
-                progressBar.barBorderColor = UIColor(named: "WarningFill") ?? UIColor.yellow
-                progressBar.barFillColor = UIColor(named: "WarningFill") ?? UIColor.yellow
-                progressBar.barBackgroundColor = UIColor(named: "WarningBackground") ?? UIColor.systemYellow
-            case 3.0:
-                progressBar.barBorderColor = UIColor(named: "GreenFill") ?? UIColor.yellow
-                progressBar.barFillColor = UIColor(named: "GreenFill") ?? UIColor.yellow
-                progressBar.barBackgroundColor = UIColor(named: "GreenFill") ?? UIColor.systemYellow
-            default:
-                progressBar.barBorderColor = .lightGray
-                progressBar.barFillColor = .lightGray
-                progressBar.barBackgroundColor = .systemGray4
-            }
-            
-            nivelSecurity = nivelSecurity / 3.0
-            
-            self.progressBar.progress = nivelSecurity
+            let result = text.checkNivelSecurityPassword()
+            progressBar.barBorderColor = result.barBorderColor
+            progressBar.barFillColor = result.barFillColor
+            progressBar.barBackgroundColor = result.barBackgroundColor
+            self.progressBar.progress = result.nivelSecurity
         }
     }
     
