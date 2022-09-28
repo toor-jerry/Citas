@@ -84,7 +84,6 @@ extension String {
             .trimmingCharacters(in: [" "])
     }
     
-    
     func clean() -> String {
         let cleanedString = self.folding(options: [.diacriticInsensitive, .caseInsensitive, .widthInsensitive], locale: nil)
         return cleanedString.components(separatedBy: CharacterSet.alphanumerics.inverted).joined(separator: "_")

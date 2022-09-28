@@ -50,7 +50,7 @@ class LogoAnimationViewController: UIViewController {
             )
             
             self.imageView.alpha = 0
-        }, completion: { done in
+        }, completion: { _ in
             self.viewController.modalTransitionStyle = .crossDissolve
             self.viewController.modalPresentationStyle = .fullScreen
             self.present(self.viewController, animated: true)

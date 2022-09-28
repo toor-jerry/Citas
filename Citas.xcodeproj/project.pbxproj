@@ -66,6 +66,7 @@
 		D2D40AA028E2871D003C5635 /* extensionChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D40A9F28E2871D003C5635 /* extensionChatViewController.swift */; };
 		D2D40AA228E289DF003C5635 /* extensionDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D40AA128E289DF003C5635 /* extensionDatabaseManager.swift */; };
 		D2D40AA428E28A6E003C5635 /* extensionDBM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D40AA328E28A6E003C5635 /* extensionDBM.swift */; };
+		D2D40AA928E32D52003C5635 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D40AA828E32D52003C5635 /* Extension.swift */; };
 		FF2944F0F2A23BA1470BC6EB /* Pods_Citas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F45BFBE83136F12BF5FEA9B3 /* Pods_Citas.framework */; };
 /* End PBXBuildFile section */
 
@@ -133,6 +134,7 @@
 		D2D40A9F28E2871D003C5635 /* extensionChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionChatViewController.swift; sourceTree = "<group>"; };
 		D2D40AA128E289DF003C5635 /* extensionDatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionDatabaseManager.swift; sourceTree = "<group>"; };
 		D2D40AA328E28A6E003C5635 /* extensionDBM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionDBM.swift; sourceTree = "<group>"; };
+		D2D40AA828E32D52003C5635 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		F45BFBE83136F12BF5FEA9B3 /* Pods_Citas.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Citas.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -461,6 +463,7 @@
 		D260CF1628DA1B8C00F86223 /* Register */ = {
 			isa = PBXGroup;
 			children = (
+				D2D40AA728E32D48003C5635 /* Extensions */,
 				D260CF1728DA1BA100F86223 /* View */,
 				D260CF1C28DA1C5E00F86223 /* Interactor */,
 				D260CF2328DA1CFE00F86223 /* Presenter */,
@@ -560,6 +563,14 @@
 				D266B68928DA5BB300757174 /* PageErrorViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		D2D40AA728E32D48003C5635 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D2D40AA828E32D52003C5635 /* Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -700,6 +711,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2D40AA928E32D52003C5635 /* Extension.swift in Sources */,
 				D2020D8828DD67A700D564CD /* DatabaseManager.swift in Sources */,
 				5F66D819289DC7A50014FEDD /* CollectionViewCell.swift in Sources */,
 				D260CF1928DA1BAC00F86223 /* RegisterViewController.swift in Sources */,

@@ -49,12 +49,10 @@ extension DatabaseManager {
                 if let targetUrlString = mediaItem.url?.absoluteString {
                     message = targetUrlString
                 }
-                break
             case .video(let mediaItem):
                 if let targetUrlString = mediaItem.url?.absoluteString {
                     message = targetUrlString
                 }
-                break
             case .location(let locationData):
                 let location = locationData.location
                 message = "\(location.coordinate.longitude),\(location.coordinate.latitude)"
@@ -147,7 +145,6 @@ extension DatabaseManager {
                             completion(false)
                             return
                         }
-
 
                         // Update latest message for recipient user
 

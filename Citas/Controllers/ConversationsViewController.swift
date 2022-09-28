@@ -160,7 +160,7 @@ final class ConversationsViewController: UIViewController {
         super.viewDidAppear(animated)
         validateAuth()
     }
-
+    //FIXME: "Crear viper"
     private func validateAuth() {
         if FirebaseAuth.Auth.auth().currentUser == nil {
             let vc = LoginViewController()

@@ -320,8 +320,7 @@ extension LoginViewController: LoginButtonDelegate {
                                                          version: nil,
                                                          httpMethod: .get)
 
-        facebookRequest.start {
-            (connection, result, error) -> Void in
+        facebookRequest.start { (_, result, error) -> Void in
             guard let result = result as? [String: Any],
                 error == nil else {
                     print("Failed to make facebook graph request")
@@ -357,7 +356,7 @@ extension LoginViewController: LoginButtonDelegate {
 
                             print("Downloading data from facebook image")
 
-                            URLSession.shared.dataTask(with: url, completionHandler: { data, _,_ in
+                            URLSession.shared.dataTask(with: url, completionHandler: { data, _, _ in
                                 guard let data = data else {
                                     print("Failed to get data from facebook")
                                     return
@@ -400,5 +399,4 @@ extension LoginViewController: LoginButtonDelegate {
             })
         }
     }
-
 }

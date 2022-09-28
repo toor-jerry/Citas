@@ -10,7 +10,7 @@ import JGProgressHUD
 
 final class NewConversationViewController: UIViewController {
 
-    public var completion: ((SearchResult) -> (Void))?
+    public var completion: ((SearchResult) -> Void)?
 
     private let spinner = JGProgressHUD(style: .dark)
 

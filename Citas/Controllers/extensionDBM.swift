@@ -37,7 +37,7 @@ extension DatabaseManager {
             switch firstMessage.kind {
             case .text(let messageText):
                 message = messageText
-            case .attributedText(_), .photo(_), .video(_), .location(_), .emoji(_), .audio(_), .contact(_), .linkPreview(_),  .custom(_):
+            case .attributedText(_), .photo(_), .video(_), .location(_), .emoji(_), .audio(_), .contact(_), .linkPreview(_), .custom(_):
                 break
             }
 
