@@ -78,7 +78,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DatabaseManager.shared.userExists(with: email, completion: { exists in
             if !exists {
                 // insert to database
-                let chatUser = ChatAppUser(
+                let chatUser = User(
                     firstName: firstName,
                     lastName: lastName,
                     emailAddress: email

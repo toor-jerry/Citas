@@ -143,7 +143,7 @@ extension RegisterViewController {
                 UserDefaults.standard.setValue(email, forKey: "email")
                 UserDefaults.standard.setValue("\(firstName) \(lastName)", forKey: "name")
 
-                let chatUser = ChatAppUser(firstName: firstName,
+                let chatUser = User(firstName: firstName,
                                           lastName: lastName,
                                           emailAddress: email)
                 DatabaseManager.shared.insertUser(with: chatUser, completion: { success in

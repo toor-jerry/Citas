@@ -6,7 +6,7 @@
 //
 
 import Foundation
-struct ChatAppUser {
+struct User {
     let firstName: String
     let lastName: String
     let emailAddress: String

@@ -30,7 +30,7 @@ extension DatabaseManager {
     }
 
     /// Inserts new user to database
-    public func insertUser(with user: ChatAppUser, completion: @escaping (Bool) -> Void) {
+    public func insertUser(with user: User, completion: @escaping (Bool) -> Void) {
         database.child(user.safeEmail).setValue([
             "first_name": user.firstName,
             "last_name": user.lastName
