@@ -10,6 +10,7 @@ target 'Citas' do
   pod 'FirebaseStorage'
   pod 'FirebaseAnalytics'
   pod 'FirebaseCrashlytics'
+  pod 'FirebaseRemoteConfig'
 
   pod 'FBSDKLoginKit'
 

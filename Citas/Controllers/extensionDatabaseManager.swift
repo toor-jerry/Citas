@@ -57,13 +57,7 @@ extension DatabaseManager {
                 let location = locationData.location
                 message = "\(location.coordinate.longitude),\(location.coordinate.latitude)"
                 break
-            case .emoji(_):
-                break
-            case .audio(_):
-                break
-            case .contact(_):
-                break
-            case .custom(_), .linkPreview(_):
+            @unknown default:
                 break
             }
 
